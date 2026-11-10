@@ -1,117 +1,168 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Bangers", system-ui;
-}
-
-html {
-    height: 100%;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-
-    background-image: url(img/background2.jpg);
-
-    background-size: cover;
-    background-position: center;
-
+  height: 100vh;
+  overflow: hidden;
+  background: url('img/background.jpg') no-repeat center center;
+  background-size: cover;
+  font-family: 'Bangers', cursive;
+  color: white;
+  position: relative;
 }
 
-p {
-    color: red;
-    font-size: 80px;
-}
-
+/* Nome grande em cima, tipo LUCIA */
 .nome {
-    color: lch(59.1% 111.91 328.19);
-    font-size: 350px;
-    position: absolute;
-    bottom: 500px;
-    text-align: center;
-    width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 140px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 
-
+/* Personagem grande do meio */
 .personagem {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 700px;
-    margin: auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 92vh;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
 }
 
+/* Textos da esquerda */
 .textos {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
+  position: absolute;
+  left: 40px;
+  bottom: 130px;
+  z-index: 3;
+  max-width: 500px;
 }
 
 .etiqueta {
-    font-size: 30px;
-    color: #ffd319;
-
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-    font-size: 75px;
-    color: #ffffff;
-
+.textos h1 {
+  font-size: 84px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.4);
 }
 
-.etiqueta2 {
-    font-size: 18px;
-    color: #ffffff;
+/* Menu de bolinhas embaixo */
+.menu {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  z-index: 4;
+}
 
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: 0.2s;
 }
-.menu
-{
-    position: absolute;
-    bottom: 45px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    gap: 22px;
+.voce {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #FFD700;
+  border: 3px solid transparent;
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.avatar
-{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    border: 2px solid #ffffff;
-}
-.voce
-{
-    background-color: #ffd319;
-    padding: 20px;
-    border-radius: 50%;
-}
+
+/* Borda amarela de quem tá selecionado */
 .avatar.selecionado {
   border: 3px solid #FFD700;
   box-shadow: 0 0 15px #FFD700;
   transform: scale(1.1);
 }
+
 .voce.selecionado {
   border: 3px solid #FFD700;
   box-shadow: 0 0 15px #FFD700;
   transform: scale(1.1);
 }
+
 /* Máscara pra sua foto parecer personagem do pôster */
 .personagem.foto-voce {
-  /* Deixa a cor estourada igual o pôster */
   filter: contrast(1.4) saturate(1.9) brightness(1.08) sepia(0.22) hue-rotate(-8deg) drop-shadow(0 0 25px rgba(255, 180, 0, 0.5));
-
-  /* Recorta sua foto igual a dos personagens, sem ficar quadrada */
   object-fit: cover;
   aspect-ratio: 3 / 4;
   border-radius: 20px;
-
-  /* Faz a parte de baixo sumir suave, igual o recorte da Lucia */
   -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+}
+
+/* Ajuste para celular - com os nomes certos do seu HTML */
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  .nome {
+    font-size: 80px;
+    top: 10px;
+    left: 16px;
+  }
+
+  .personagem {
+    width: 100%;
+    height: auto;
+    max-height: 78vh;
+    bottom: 0;
+    left: 50%;
+  }
+
+  .textos {
+    left: 16px;
+    bottom: 110px;
+    width: calc(100% - 32px);
+  }
+
+  .textos h1 {
+    font-size: 48px;
+    line-height: 0.95;
+  }
+
+  .etiqueta {
+    font-size: 14px;
+  }
+
+  .menu {
+    bottom: 20px;
+    gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .avatar, .voce {
+    width: 52px;
+    height: 52px;
+  }
 }
