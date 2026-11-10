@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Bangers", system-ui;
+}
+
+html {
+    height: 100%;
+
+}
+
+body {
+
+    background-image: url(img/background2.jpg);
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+p {
+    color: red;
+    font-size: 80px;
+}
+
+.nome {
+    color: lch(59.1% 111.91 328.19);
+    font-size: 350px;
+    position: absolute;
+    bottom: 500px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.personagem {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 700px;
+    margin: auto;
+}
+
+.textos {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+
+.etiqueta {
+    font-size: 30px;
+    color: #ffd319;
+
+}
+
+h1 {
+    font-size: 75px;
+    color: #ffffff;
+
+}
+
+.etiqueta2 {
+    font-size: 18px;
+    color: #ffffff;
+
+}
+.menu
+{
+    position: absolute;
+    bottom: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    gap: 22px;
+}
+.avatar
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid #ffffff;
+}
+.voce
+{
+    background-color: #ffd319;
+    padding: 20px;
+    border-radius: 50%;
+}
+.avatar.selecionado {
+  border: 3px solid #FFD700;
+  box-shadow: 0 0 15px #FFD700;
+  transform: scale(1.1);
+}
+.voce.selecionado {
+  border: 3px solid #FFD700;
+  box-shadow: 0 0 15px #FFD700;
+  transform: scale(1.1);
+}
+/* Máscara pra sua foto parecer personagem do pôster */
+.personagem.foto-voce {
+  /* Deixa a cor estourada igual o pôster */
+  filter: contrast(1.4) saturate(1.9) brightness(1.08) sepia(0.22) hue-rotate(-8deg) drop-shadow(0 0 25px rgba(255, 180, 0, 0.5));
+
+  /* Recorta sua foto igual a dos personagens, sem ficar quadrada */
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+
+  /* Faz a parte de baixo sumir suave, igual o recorte da Lucia */
+  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+}
